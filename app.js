@@ -29,8 +29,7 @@ app.use(cors());
 app.use(passport.initialize());
 app.use(passport.session());
 
-require('./bin/passport');
-
+require('./config/passport')(passport);
 app.use('/', index);
 app.use('/users', users);
 
