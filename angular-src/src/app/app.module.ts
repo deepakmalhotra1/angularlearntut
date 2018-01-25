@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {RouterModule, Routes} from "@angular/router"
+import {FormsModule} from "@angular/forms";
 
 
 import { AppComponent } from './app.component';
@@ -10,6 +11,10 @@ import { RegisterComponent } from './components/register/register.component';
 import { HomeComponent } from './components/home/home.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { ProfileComponent } from './profile/profile.component';
+import {ValidateService} from "./services/validate.service";
+import {FlashMessagesModule, FlashMessagesService} from "angular2-flash-messages";
+
+
 
 const appRoutes = [
   {path:'', component: HomeComponent},
@@ -30,9 +35,11 @@ const appRoutes = [
   ],
   imports: [
     BrowserModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    FormsModule,
+    FlashMessagesModule
   ],
-  providers: [],
+  providers: [ValidateService,FlashMessagesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
