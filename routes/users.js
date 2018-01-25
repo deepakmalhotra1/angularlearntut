@@ -7,6 +7,7 @@ const User = require('../models/user');
 
 // Register
 router.post('/register', (req, res, next) => {
+    console.log('body is ',req.body);
     let newUser = new User({
         name: req.body.name,
         email: req.body.email,
@@ -16,8 +17,11 @@ router.post('/register', (req, res, next) => {
 
     User.addUser(newUser, (err, user) => {
         if(err){
+            console.log('error is ',err)
             res.json({success: false, msg:'Failed to register user'});
         } else {
+            console.log('done ',user)
+
             res.json({success: true, msg:'User registered'});
         }
     });
