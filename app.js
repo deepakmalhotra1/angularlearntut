@@ -33,6 +33,9 @@ require('./config/passport')(passport);
 app.use('/', index);
 app.use('/users', users);
 
+app.get('*',(req,res)=>{
+  res.sendFile(path.join(__dirname,'public/index.html'))
+})
 
 mongoose.connect(config.database,(err)=>{
   if(!err)
