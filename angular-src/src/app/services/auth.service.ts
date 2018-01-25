@@ -15,7 +15,7 @@ export class AuthService {
     console.log('registering user ',user)
     let headers = new Headers();
     headers.append('Content-Type','application/json');
-    return this.http.post('http://localhost:3000/users/register',user,{headers:headers})
+    return this.http.post('users/register',user,{headers:headers})
       .map(res => res.json());
   }
 
@@ -23,7 +23,7 @@ export class AuthService {
     console.log('login user ',user)
     let headers = new Headers();
     headers.append('Content-Type','application/json');
-    return this.http.post('http://localhost:3000/users/login',user,{headers:headers})
+    return this.http.post('users/login',user,{headers:headers})
       .map(res => res.json());
   }
 
@@ -32,7 +32,7 @@ export class AuthService {
     console.log('auth servesd');
     let headers = new Headers();
     headers.append('Content-Type','application/json');
-    return this.http.post('http://localhost:3000/users/authenticate',user,{headers:headers})
+    return this.http.post('users/authenticate',user,{headers:headers})
       .map(res=>res.json());
   }
 
@@ -43,7 +43,7 @@ export class AuthService {
     headers.append('Content-Type','application/json');
     this.loadToken();
     headers.append('Authorization',this.authToken);
-    return this.http.get('http://localhost:3000/users/profile',{headers:headers})
+    return this.http.get('users/profile',{headers:headers})
       .map(res=>res.json());
   }
 

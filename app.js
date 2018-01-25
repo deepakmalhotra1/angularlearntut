@@ -37,7 +37,7 @@ app.get('*',(req,res)=>{
   res.sendFile(path.join(__dirname,'public/index.html'))
 })
 
-mongoose.connect(config.database,(err)=>{
+mongoose.connect(config.production,(err)=>{
   if(!err)
     console.log('getting connected to the database');
 })
